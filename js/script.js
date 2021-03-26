@@ -8,24 +8,22 @@ const app = new Vue ({
   },
   methods: {
     addProject() {
-      if ( this.emptyControl(this.inputText) ) {
+      if ( this.emptyControl(this.inputText) && this.inputDate != null ) {
         let i = 0;
         while ( i < this.outputArray.length && this.inputText != null && this.outputArray.length > 0 ) {
           if ( this.outputArray[i].outputDate.includes(this.inputDate) ) {
-            this.outputArray[i].outputProject.push(this.inputText);
-            this.inputText = null;
-            this.inputDate = null;
+            this.projectPush(i);
           } else {
-            this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
-            this.inputText = null;
-            this.inputDate = null;
+            this.projectDatePush();
           }
           i++;
         }
         if ( this.outputArray.length == 0 ) {
-          this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
-          this.inputText = null;
-          this.inputDate = null;
+          this.projectDatePush();
+        }
+      } else {
+        if ( this.inputDate == null ) {
+          alert('Insert a date');
         }
       }
     },
@@ -40,6 +38,16 @@ const app = new Vue ({
       } else {
         return true;
       }
+    },
+    projectPush(index) {
+      this.outputArray[index].outputProject.push(this.inputText);
+      this.inputText = null;
+      this.inputDate = null;
+    },
+    projectDatePush() {
+      this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
+      this.inputText = null;
+      this.inputDate = null;
     },
   }
 });
