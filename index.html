@@ -24,7 +24,7 @@
           <span v-show="warningDate == true" class="warning warning--right">Please select a date</span>
         </div>
         <details v-for="(detailsItem, detailsIndex) in outputArray" v-show="outputArray[detailsIndex].outputProject != 0" open>
-          <summary>{{ outputArray[detailsIndex].outputDate }}</summary>
+          <summary><h2>{{ outputArray[detailsIndex].outputDate }}</h2></summary>
           <ul>
             <li v-for="(liItem, liIndex) in outputArray[detailsIndex].outputProject">{{ outputArray[detailsIndex].outputProject[liIndex] }} <span @click="removeProject(detailsIndex, liIndex);" class="cross">&cross;</span> </li>
           </ul>

@@ -29,9 +29,34 @@
 
 .warnings-wrapper {
   position: relative;
+  height: 18px;
 }
 
 .warning--right {
   position: absolute;
   left: 178px;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 28px;
+}
+
+li {
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.app-container {
+  padding: 60px;
+  background-color: lightblue;
+}
+
+.app-container > *,
+details summary {
+  margin-bottom: 15px;
+}
+
+.app-container details li:not(:last-child) {
+  margin-bottom: 10px;
 }
