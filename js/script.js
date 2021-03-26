@@ -4,14 +4,14 @@ const app = new Vue ({
   data: {
     inputText: null,
     inputDate: null,
-    dateOutput: null,
-    projectOutput: null,
+    outputArray: [],
   },
   methods: {
     addProject() {
       if ( this.emptyControl(this.inputText) ) {
-        this.projectOutput = this.inputText;
-        this.dateOutput = this.inputDate;
+        // this.projectArray.push(this.inputText);
+        this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
+        this.inputText = null;
       }
     },
     emptyControl (word) {

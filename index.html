@@ -19,10 +19,10 @@
       <div class="app-container" id="root">
         <input id="input-project" type="text" placeholder="Insert project" v-on:keydown.13="addProject();" v-model="inputText">
         <input id="input-date" type="date" v-model="inputDate">
-        <details v-for="(item, index) in " v-show="true" open>
-          <summary>{{ dateOutput }}</summary>
+        <details v-for="(detailsItem, detailsIndex) in outputArray" v-show="true" open>
+          <summary>{{ outputArray[detailsIndex].outputDate }}</summary>
           <ul>
-            <li>{{ projectOutput }}</li>
+            <li v-for="(liItem, liIndex) in outputArray[detailsIndex].outputProject">{{ outputArray[detailsIndex].outputProject[liIndex] }}</li>
           </ul>
         </details>
       </div>
