@@ -23,16 +23,16 @@ const app = new Vue ({
         }
       } else {
         if ( this.inputDate == null ) {
-          alert('Insert a date');
+          alert('Please select a date');
         }
       }
     },
     removeProject( arrayIndex, projectIndex ) {
       this.outputArray[arrayIndex].outputProject.splice( projectIndex, 1 );
     },
-    emptyControl (word) {
+    emptyControl ( word ) {
       // Controllo se l' input è vuoto
-      if (word.length === 0 || !word.trim()) {
+      if ( word == null || word.length === 0 || !word.trim() ) {
         alert("Please enter a word");
         return false;
       } else {
