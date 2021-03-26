@@ -9,10 +9,12 @@ const app = new Vue ({
   methods: {
     addProject() {
       if ( this.emptyControl(this.inputText) ) {
-        // this.projectArray.push(this.inputText);
         this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
         this.inputText = null;
       }
+    },
+    removeProject( arrayIndex, projectIndex ) {
+      this.outputArray[arrayIndex].outputProject.splice( projectIndex, 1 );
     },
     emptyControl (word) {
       // Controllo se l' input è vuoto

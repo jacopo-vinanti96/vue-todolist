@@ -22,7 +22,7 @@
         <details v-for="(detailsItem, detailsIndex) in outputArray" v-show="true" open>
           <summary>{{ outputArray[detailsIndex].outputDate }}</summary>
           <ul>
-            <li v-for="(liItem, liIndex) in outputArray[detailsIndex].outputProject">{{ outputArray[detailsIndex].outputProject[liIndex] }}</li>
+            <li v-for="(liItem, liIndex) in outputArray[detailsIndex].outputProject">{{ outputArray[detailsIndex].outputProject[liIndex] }} <span @click="removeProject(detailsIndex, liIndex);" class="cross">&cross;</span> </li>
           </ul>
         </details>
       </div>

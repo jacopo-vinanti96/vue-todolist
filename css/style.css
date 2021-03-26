@@ -21,6 +21,6 @@
   text-shadow: 0 0 5px black;
 }
 
-.title-col1 {
+.title-col1, .cross {
   color: red;
 }
