@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="body__container">
+    <header>
+      <div class="header__container">
+        <h1><span class="title-col1">T</span>o <span class="title-col1">d</span>o <span class="title-col1">l</span>ist <span class="check check--title">&check;</span></h1>
+      </div>
+    </header>
+    <main>
+      <div class="app-container" id="root">
+        <input id="input-project" type="text" placeholder="Insert project" v-on:keydown.13="addProject(); controlDate();">
+        <input id="input-date" type="date">
+        <details  v-show="" open>
+          <summary>{{ dateOutput }}</summary>
+          <ul>
+            <li>{{ projectOutput }}</li>
+          </ul>
+        </details>
+      </div>
+    </main>
+  </div>
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+</html>
