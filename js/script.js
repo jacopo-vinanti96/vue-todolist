@@ -9,8 +9,24 @@ const app = new Vue ({
   methods: {
     addProject() {
       if ( this.emptyControl(this.inputText) ) {
-        this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
-        this.inputText = null;
+        let i = 0;
+        while ( i < this.outputArray.length && this.inputText != null && this.outputArray.length > 0 ) {
+          if ( this.outputArray[i].outputDate.includes(this.inputDate) ) {
+            this.outputArray[i].outputProject.push(this.inputText);
+            this.inputText = null;
+            this.inputDate = null;
+          } else {
+            this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
+            this.inputText = null;
+            this.inputDate = null;
+          }
+          i++;
+        }
+        if ( this.outputArray.length == 0 ) {
+          this.outputArray.push({ outputDate: this.inputDate, outputProject: [this.inputText] });
+          this.inputText = null;
+          this.inputDate = null;
+        }
       }
     },
     removeProject( arrayIndex, projectIndex ) {
