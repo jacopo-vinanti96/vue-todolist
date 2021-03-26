@@ -21,6 +21,17 @@
   text-shadow: 0 0 5px black;
 }
 
-.title-col1, .cross {
+.title-col1,
+.cross,
+.warning {
   color: red;
+}
+
+.warnings-wrapper {
+  position: relative;
+}
+
+.warning--right {
+  position: absolute;
+  left: 178px;
 }

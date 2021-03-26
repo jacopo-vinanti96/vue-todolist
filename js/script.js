@@ -4,10 +4,14 @@ const app = new Vue ({
   data: {
     inputText: null,
     inputDate: null,
+    warningText: false,
+    warningDate: false,
     outputArray: [],
   },
   methods: {
     addProject() {
+      this.warningText = false;
+      this.warningDate = false;
       if ( this.emptyControl(this.inputText) && this.inputDate != null ) {
         let i = 0;
         while ( i < this.outputArray.length && this.inputText != null && this.outputArray.length > 0 ) {
@@ -23,7 +27,7 @@ const app = new Vue ({
         }
       } else {
         if ( this.inputDate == null ) {
-          alert('Please select a date');
+          this.warningDate = true;
         }
       }
     },
@@ -33,7 +37,7 @@ const app = new Vue ({
     emptyControl ( word ) {
       // Controllo se l' input è vuoto
       if ( word == null || word.length === 0 || !word.trim() ) {
-        alert("Please enter a word");
+        this.warningText = true;
         return false;
       } else {
         return true;

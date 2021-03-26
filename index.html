@@ -19,7 +19,11 @@
       <div class="app-container" id="root">
         <input id="input-project" type="text" placeholder="Insert project" v-on:keydown.13="addProject();" v-model="inputText">
         <input id="input-date" type="date" v-model="inputDate">
-        <details v-for="(detailsItem, detailsIndex) in outputArray" v-show="true" open>
+        <div class="warnings-wrapper">
+          <span v-show="warningText == true" class="warning">Please enter a word</span>
+          <span v-show="warningDate == true" class="warning warning--right">Please select a date</span>
+        </div>
+        <details v-for="(detailsItem, detailsIndex) in outputArray" v-show="outputArray[detailsIndex].outputProject != 0" open>
           <summary>{{ outputArray[detailsIndex].outputDate }}</summary>
           <ul>
             <li v-for="(liItem, liIndex) in outputArray[detailsIndex].outputProject">{{ outputArray[detailsIndex].outputProject[liIndex] }} <span @click="removeProject(detailsIndex, liIndex);" class="cross">&cross;</span> </li>
