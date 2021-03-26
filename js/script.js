@@ -2,6 +2,26 @@
 const app = new Vue ({
   el: '#root',
   data: {
-    
+    inputText: null,
+    inputDate: null,
+    dateOutput: null,
+    projectOutput: null,
+  },
+  methods: {
+    addProject() {
+      if ( this.emptyControl(this.inputText) ) {
+        this.projectOutput = this.inputText;
+        this.dateOutput = this.inputDate;
+      }
+    },
+    emptyControl (word) {
+      // Controllo se l' input è vuoto
+      if (word.length === 0 || !word.trim()) {
+        alert("Please enter a word");
+        return false;
+      } else {
+        return true;
+      }
+    },
   }
 });

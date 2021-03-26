@@ -17,9 +17,9 @@
     </header>
     <main>
       <div class="app-container" id="root">
-        <input id="input-project" type="text" placeholder="Insert project" v-on:keydown.13="addProject(); controlDate();">
-        <input id="input-date" type="date">
-        <details  v-show="" open>
+        <input id="input-project" type="text" placeholder="Insert project" v-on:keydown.13="addProject();" v-model="inputText">
+        <input id="input-date" type="date" v-model="inputDate">
+        <details v-for="(item, index) in " v-show="true" open>
           <summary>{{ dateOutput }}</summary>
           <ul>
             <li>{{ projectOutput }}</li>
